@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_Register {
+public class Account_01_Register_DRY {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	

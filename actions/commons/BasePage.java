@@ -19,6 +19,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	
+	public static BasePage getBasePage() {
+		return new BasePage();
+	}
+	
 	
 	/* Web Browser*/
 	public void openPageUrl(WebDriver driver, String pageUrl) {
