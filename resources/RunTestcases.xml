@@ -3,10 +3,7 @@
 
   <test name="Run on Firefox">
     <classes>
-      <class name="com.nopcommerce.account.Account_01_Register_DRY"/>
-      <class name="com.nopcommerce.account.Account_01_Register_BasePage_Init"/>
-      <class name="com.nopcommerce.account.Account_01_Register_BasePage_Static"/>
-      <class name="com.nopcommerce.account.Account_01_Register_BasePage_Inherit"/>
+      <class name="com.nopcommerce.account.Account_01_Register_PageObject"/>
     </classes>
   </test> <!-- Test -->
   
