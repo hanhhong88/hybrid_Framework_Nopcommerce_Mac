@@ -18,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_Register_PageObject extends BasePage {
+public class Account_01_Register_PageObject{
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	private HomePageObject homePage;
