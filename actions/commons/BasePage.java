@@ -1,5 +1,6 @@
 package commons;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
@@ -55,7 +56,7 @@ public class BasePage {
 	}
 	
 	public Alert waitForAlertPresence(WebDriver driver) {
-		return new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
+		return new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.alertIsPresent());
 		
 	}
 	
@@ -166,7 +167,7 @@ public class BasePage {
 	
 	public void selectItemInDropdown(WebDriver driver, String parentLocator, String childLocator, String expectedItem) {
 		getElement(driver, parentLocator).click();
-		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getXpath(childLocator)));
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(getXpath(childLocator)));
 		List<WebElement> allItems = getElements(driver, childLocator);
 		for (WebElement tempItem : allItems) {			
 			if(tempItem.getText().trim().equals(expectedItem) ){
@@ -225,7 +226,7 @@ public class BasePage {
 	}
 	
 	public void switchToIframe(WebDriver driver, String locator) {
-		new WebDriverWait (driver, 30).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(getXpath(locator)));
+		new WebDriverWait (driver, Duration.ofSeconds(30)).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(getXpath(locator)));
 	}
 	
 	public void switchToDefaultContent(WebDriver driver, String locator) {
@@ -313,23 +314,23 @@ public class BasePage {
 	}
 	
 	public void waitForElementToVisibilite(WebDriver driver, String locator) {
-		new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(getXpath(locator)));
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getXpath(locator)));
 	}
 	
 	public void waitForAllElementToVisibilite(WebDriver driver, String locator) {
-		new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfAllElements(getElements(driver, locator)));
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfAllElements(getElements(driver, locator)));
 	}
 	
 	public void waitForElementToInVisibilite(WebDriver driver, String locator) {
-		new WebDriverWait(driver, 30).until(ExpectedConditions.invisibilityOfElementLocated(getXpath(locator)));
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOfElementLocated(getXpath(locator)));
 	}
 	
 	public void waitForAllElementToInVisibilite(WebDriver driver, String locator) {
-		new WebDriverWait(driver, 30).until(ExpectedConditions.invisibilityOfAllElements(getElements(driver, locator)));
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOfAllElements(getElements(driver, locator)));
 	}
 	
 	public void waitForElementToClickable(WebDriver driver, String locator) {
-		new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(getElement(driver, locator)));
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getElement(driver, locator)));
 	}
 	
 	public void Sleepinsecond(long Timeinseconds) {

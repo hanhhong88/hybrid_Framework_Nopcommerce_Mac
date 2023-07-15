@@ -12,23 +12,46 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BaseTest {
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
+//	private String projectPath = System.getProperty("user.dir");
 	protected WebDriver getBrowserName(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		
-//		Use Enum
+		
+//		use SeleniumrManager
 		if (browser == BrowserList.FIREFOX) {
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-			driver = new FirefoxDriver();
-		} else if (browser == BrowserList.CHROME) {
-			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
-			driver = new ChromeDriver();
-		} else if (browser == BrowserList.EDGE) {
-			System.setProperty("webdriver.edge.driver", projectPath + "/browserDrivers/msedgedriver");
-			driver = new EdgeDriver();
-		} else {
-			throw new RuntimeException("Wrong browser Name");
-		}
+		driver = new FirefoxDriver();
+	} else if (browser == BrowserList.CHROME) {
+		driver = new ChromeDriver();
+	} else if (browser == BrowserList.EDGE) {
+		driver = new EdgeDriver();
+	} else {
+		throw new RuntimeException("Wrong browser Name");
+	}
+		
+//		use WebDriverManager
+//		if (browser == BrowserList.FIREFOX) {
+//		driver = WebDriverManager.firefoxdriver().create();
+//	} else if (browser == BrowserList.CHROME) {
+//		driver = WebDriverManager.chromedriver().create();
+//	} else if (browser == BrowserList.EDGE) {
+//		driver = WebDriverManager.edgedriver().create();
+//	} else {
+//		throw new RuntimeException("Wrong browser Name");
+//	}	
+		
+//		Use Enum
+//		if (browser == BrowserList.FIREFOX) {
+//			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+//			driver = new FirefoxDriver();
+//		} else if (browser == BrowserList.CHROME) {
+//			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
+//			driver = new ChromeDriver();
+//		} else if (browser == BrowserList.EDGE) {
+//			System.setProperty("webdriver.edge.driver", projectPath + "/browserDrivers/msedgedriver");
+//			driver = new EdgeDriver();
+//		} else {
+//			throw new RuntimeException("Wrong browser Name");
+//		}
 		
 //		do not use Enum		
 //		if (browserName.equalsIgnoreCase("firefox")) {
