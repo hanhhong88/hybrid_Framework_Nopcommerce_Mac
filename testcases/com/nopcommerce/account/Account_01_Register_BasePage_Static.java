@@ -6,6 +6,7 @@ import commons.BasePage;
 
 import org.testng.annotations.BeforeClass;
 
+import java.time.Duration;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +29,7 @@ public class Account_01_Register_BasePage_Static {
 
 	  driver.manage().window().maximize();
 	  basePage = new BasePage();
-	  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 	  
   }
 	

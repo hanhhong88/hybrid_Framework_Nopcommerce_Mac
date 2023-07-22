@@ -2,40 +2,31 @@ package com.nopcommerce.account;
 
 import org.testng.annotations.Test;
 
-import commons.BasePage;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import commons.BaseTest;
+import pageObject.factory.CustomerPageObject;
+import pageObject.factory.HomePageObject;
+import pageObject.factory.LoginPageObject;
+import pageObject.factory.RegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
-
-import java.time.Duration;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.Parameters;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_Register_PageObject{
+public class Account_01_Register_Selenium_PageFactory extends BaseTest {
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 	private CustomerPageObject customPage;
 	private String emailAddress = getEmailrandom();
 
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-		driver = new FirefoxDriver();
-
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-		driver.get("https://demo.nopcommerce.com/");
+	public void beforeClass(String browserName) {
+		driver = getBrowserName(browserName);
 		homePage = new HomePageObject(driver);
 
 	}
@@ -107,7 +98,7 @@ public class Account_01_Register_PageObject{
 		registerPage.enterToPasswordTextbox("123456");
 		registerPage.enterToConfirmPasswordTextbox("123");
 		registerPage.clicktoRegisterButton();
-		
+
 		Assert.assertEquals(registerPage.getConfirm_PasswordErrorMsgText(),
 				"The password and confirmation password do not match.");
 	}
@@ -128,7 +119,7 @@ public class Account_01_Register_PageObject{
 		registerPage.enterToConfirmPasswordTextbox("123456");
 		registerPage.enterToConfirmPasswordTextbox("123456");
 		registerPage.clicktoRegisterButton();
-		
+
 		Assert.assertEquals(registerPage.getSuccessMsgText(), "Your registration completed");
 
 	}
@@ -140,25 +131,20 @@ public class Account_01_Register_PageObject{
 		homePage = new HomePageObject(driver);
 		homePage.clickToLoginlink();
 		loginPage = new LoginPageObject(driver);
-		
+
 		loginPage.entertoEmailTextbox(emailAddress);
 		loginPage.entertoPassWordTextbox("123456");
 		loginPage.clickToLoginButton();
-		
+
 		homePage = new HomePageObject(driver);
 		homePage.clicktoMyAccoutnLink();
-		
+
 		customPage = new CustomerPageObject(driver);
-		Assert.assertEquals(customPage.getAtributeFirstName(),"hanh");
-		Assert.assertEquals(customPage.getAtributeLastName(),"nguyen");
-		Assert.assertEquals(customPage.getAtributeEmail(),emailAddress);
+		Assert.assertEquals(customPage.getAtributeFirstName(), "hanh");
+		Assert.assertEquals(customPage.getAtributeLastName(), "nguyen");
+		Assert.assertEquals(customPage.getAtributeEmail(), emailAddress);
 	}
-
-	public String getEmailrandom() {
-		Random rand = new Random();
-		return "hanh" + rand.nextInt(9999) + "@gmail.com";
-	}
-
+	
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
