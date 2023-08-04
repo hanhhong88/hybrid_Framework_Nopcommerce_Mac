@@ -13,10 +13,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pageObjects.AddressPageObject;
+import pageObjects.OrderPageObject;
+import pageObjects.RewardPointObject;
+import pageUIs.BasePageUI;
 
 public class BasePage {
 	
@@ -331,6 +335,25 @@ public class BasePage {
 	
 	public void waitForElementToClickable(WebDriver driver, String locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getElement(driver, locator)));
+	}
+	
+	public AddressPageObject openAddressPage(WebDriver driver) {
+		waitForElementToClickable(driver, BasePageUI.ADDRESS_LINK);
+		clickToElement(driver, BasePageUI.ADDRESS_LINK);
+		return PageGeneratorManager.GetAddressPageObject(driver);
+	}
+
+	public OrderPageObject openOrderPage(WebDriver driver) {
+		waitForElementToClickable(driver, BasePageUI.ORDER_LINK);
+		clickToElement(driver, BasePageUI.ORDER_LINK);
+		return PageGeneratorManager.GetOrderPageObject(driver);
+
+	}
+
+	public RewardPointObject openRewardPointPage(WebDriver driver) {
+		waitForElementToClickable(driver, BasePageUI.REWARD_POINT_LINK);
+		clickToElement(driver, BasePageUI.REWARD_POINT_LINK);
+		return PageGeneratorManager.GetRewardPointObject(driver);
 	}
 	
 	public void Sleepinsecond(long Timeinseconds) {
