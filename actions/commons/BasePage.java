@@ -336,26 +336,7 @@ public class BasePage {
 	public void waitForElementToClickable(WebDriver driver, String locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getElement(driver, locator)));
 	}
-	
-	public AddressPageObject openAddressPage(WebDriver driver) {
-		waitForElementToClickable(driver, BasePageUI.ADDRESS_LINK);
-		clickToElement(driver, BasePageUI.ADDRESS_LINK);
-		return PageGeneratorManager.GetAddressPageObject(driver);
-	}
-
-	public OrderPageObject openOrderPage(WebDriver driver) {
-		waitForElementToClickable(driver, BasePageUI.ORDER_LINK);
-		clickToElement(driver, BasePageUI.ORDER_LINK);
-		return PageGeneratorManager.GetOrderPageObject(driver);
-
-	}
-
-	public RewardPointObject openRewardPointPage(WebDriver driver) {
-		waitForElementToClickable(driver, BasePageUI.REWARD_POINT_LINK);
-		clickToElement(driver, BasePageUI.REWARD_POINT_LINK);
-		return PageGeneratorManager.GetRewardPointObject(driver);
-	}
-	
+		
 	public void Sleepinsecond(long Timeinseconds) {
 		try {
 			Thread.sleep(Timeinseconds * 1000);
