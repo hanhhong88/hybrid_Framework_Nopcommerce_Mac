@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce">
+	<parameter name="adminUrl" value="https://admin-demo.nopcommerce.com" />
+	<parameter name="userUrl" value="https://demo.nopcommerce.com" />
 
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_01_Page_Navigation" />
+			<class name="com.nopcommerce.account.Account_01_Switch_URL" />
 		</classes>
 	</test>
 </suite>

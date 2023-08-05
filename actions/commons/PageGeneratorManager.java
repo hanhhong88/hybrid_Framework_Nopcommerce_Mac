@@ -2,21 +2,23 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.AddressPageObject;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.OrderPageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.RewardPointObject;
+import pageObjects.admin.AdminDashboardPageObject;
+import pageObjects.admin.AdminLoginPageObject;
+import pageObjects.user.AddressPageObject;
+import pageObjects.user.CustomerPageObject;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.OrderPageObject;
+import pageObjects.user.RegisterPageObject;
+import pageObjects.user.RewardPointObject;
 
 public class PageGeneratorManager {
 	public static HomePageObject GetHomePageObject(WebDriver driver) {
 		return new HomePageObject(driver);
 	}
 	
-	public static LoginPageObject GetLoginPageObject(WebDriver driver) {
-		return new LoginPageObject(driver);
+	public static UserLoginPageObject GetUserLoginPageObject(WebDriver driver) {
+		return new UserLoginPageObject(driver);
 	}
 	
 	public static RegisterPageObject GetRegisterPageObject(WebDriver driver) {
@@ -37,6 +39,14 @@ public class PageGeneratorManager {
 	
 	public static RewardPointObject GetRewardPointObject(WebDriver driver) {
 		return new RewardPointObject(driver);
+	}
+	
+	public static AdminLoginPageObject GetAdminLoginPageObject(WebDriver driver) {
+		return new AdminLoginPageObject(driver);
+	}
+	
+	public static AdminDashboardPageObject GetAdminDashboardPageObject(WebDriver driver) {
+		return new AdminDashboardPageObject(driver);
 	}
 
 }

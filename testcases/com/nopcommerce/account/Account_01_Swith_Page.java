@@ -9,19 +9,19 @@ import org.testng.annotations.Test;
 
 import commons.BaseTest;
 import commons.PageGeneratorManager;
-import pageObjects.AddressPageObject;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.OrderPageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.RewardPointObject;
+import pageObjects.user.AddressPageObject;
+import pageObjects.user.CustomerPageObject;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.OrderPageObject;
+import pageObjects.user.RegisterPageObject;
+import pageObjects.user.RewardPointObject;
 
 public class Account_01_Swith_Page extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
+	private UserLoginPageObject loginPage;
 	private CustomerPageObject customPage;
 	private AddressPageObject addressPage;
 	private OrderPageObject orderPage;
@@ -69,11 +69,11 @@ public class Account_01_Swith_Page extends BaseTest {
 	
 	@Test
 	public void Register_07_SwitchPage() {
-		addressPage = customPage.openAddressPage(driver);
+		addressPage = customPage.openAddressPage();
 		
-		orderPage = customPage.openOrderPage(driver);
+		orderPage = customPage.openOrderPage();
 		
-		rewardPointpage = customPage.openRewardPointPage(driver);
+		rewardPointpage = customPage.openRewardPointPage();
 		
 	}
 	

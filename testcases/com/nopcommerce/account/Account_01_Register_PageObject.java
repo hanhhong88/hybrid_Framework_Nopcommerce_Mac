@@ -3,10 +3,10 @@ package com.nopcommerce.account;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.CustomerPageObject;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.RegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 
@@ -24,7 +24,7 @@ public class Account_01_Register_PageObject{
 	private String projectPath = System.getProperty("user.dir");
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
+	private UserLoginPageObject loginPage;
 	private CustomerPageObject customPage;
 	private String emailAddress = getEmailrandom();
 
@@ -139,7 +139,7 @@ public class Account_01_Register_PageObject{
 
 		homePage = new HomePageObject(driver);
 		homePage.clickToLoginlink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		
 		loginPage.entertoEmailTextbox(emailAddress);
 		loginPage.entertoPassWordTextbox("123456");

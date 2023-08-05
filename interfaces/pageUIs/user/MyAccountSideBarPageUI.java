@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.user;
 
 public class MyAccountSideBarPageUI {
 	public static final String ADDRESS_LINK = "//div[@class = 'side-2'] //a[text() = 'Addresses']";
