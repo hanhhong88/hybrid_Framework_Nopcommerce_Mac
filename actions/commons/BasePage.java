@@ -135,6 +135,9 @@ public class BasePage {
 	public By getXpath(String locator) {
 		return By.xpath(locator);
 	}
+	public String getDynamicLocator(String locator, String...params) {
+		return String.format(locator, (Object[])params);
+	}
 	
 	public WebElement getElement(WebDriver driver, String locator) {
 		return driver.findElement(getXpath(locator));
@@ -148,13 +151,26 @@ public class BasePage {
 		driver.findElement(By.xpath(locator)).click();
 	}
 	
+	public void clickToElement(WebDriver driver, String locator, String...params) {
+		driver.findElement(By.xpath(getDynamicLocator(locator, params))).click();
+	}
+	
 	public void sendKey(WebDriver driver, String locator, String valueToSend) {
 		driver.findElement(By.xpath(locator)).clear();
 		driver.findElement(By.xpath(locator)).sendKeys(valueToSend);
 	}
 	
+	public void sendKey(WebDriver driver, String locator, String valueToSend, String...params) {
+		driver.findElement(By.xpath(getDynamicLocator(locator, params))).clear();
+		driver.findElement(By.xpath(getDynamicLocator(locator, params))).sendKeys(valueToSend);
+	}
+	
 	public String getElementText(WebDriver driver, String locator) {
 		return driver.findElement(By.xpath(locator)).getText();
+	}
+	
+	public String getElementText(WebDriver driver, String locator, String...params) {
+		return driver.findElement(By.xpath(getDynamicLocator(locator, params))).getText();
 	}
 	
 	public void selectItemInDefaultDropdown(WebDriver driver, String locator, String item) {
@@ -184,6 +200,10 @@ public class BasePage {
 	
 	public String getElementAttribute(WebDriver driver, String locator, String attributeName) {
 		return getElement(driver, locator).getAttribute(attributeName);
+	}
+	
+	public String getElementAttribute(WebDriver driver, String locator, String attributeName, String...params) {
+		return getElement(driver, getDynamicLocator(locator, params)).getAttribute(attributeName);
 	}
 	
 	public String getElementCssValue(WebDriver driver, String locator, String cssPropertyName) {
@@ -220,6 +240,10 @@ public class BasePage {
 	
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getElement(driver, locator).isDisplayed();
+	}
+	
+	public boolean isElementDisplayed(WebDriver driver, String locator, String...params) {
+		return getElement(driver, getDynamicLocator(locator, params)).isDisplayed();
 	}
 	
 	public boolean isElementEnable(WebDriver driver, String locator) {
@@ -322,6 +346,10 @@ public class BasePage {
 		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getXpath(locator)));
 	}
 	
+	public void waitForElementToVisibilite(WebDriver driver, String locator, String...params) {
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getXpath(getDynamicLocator(locator, params))));
+	}
+	
 	public void waitForAllElementToVisibilite(WebDriver driver, String locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfAllElements(getElements(driver, locator)));
 	}
@@ -336,6 +364,10 @@ public class BasePage {
 	
 	public void waitForElementToClickable(WebDriver driver, String locator) {
 		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getElement(driver, locator)));
+	}
+	
+	public void waitForElementToClickable(WebDriver driver, String locator, String...params) {
+		new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getElement(driver, getDynamicLocator(locator, params))));
 	}
 	
 	public boolean isPageLoadedSuccess(WebDriver driver) {

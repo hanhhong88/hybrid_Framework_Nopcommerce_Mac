@@ -17,7 +17,7 @@ import pageObjects.user.OrderPageObject;
 import pageObjects.user.RegisterPageObject;
 import pageObjects.user.RewardPointObject;
 
-public class Account_01_Page_Navigation extends BaseTest {
+public class Account_09_Page_Navigation extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;

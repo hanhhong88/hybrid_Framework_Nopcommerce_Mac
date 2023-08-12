@@ -6,7 +6,7 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_01_Switch_URL" />
+			<class name="com.nopcommerce.account.Account_12_Page_Navigation_Dynamic_Locator" />
 		</classes>
 	</test>
 </suite>

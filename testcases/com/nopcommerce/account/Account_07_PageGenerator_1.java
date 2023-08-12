@@ -22,7 +22,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_Register_PageGenerator_1 extends BaseTest {
+public class Account_07_PageGenerator_1 extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;

@@ -14,7 +14,7 @@ import pageObjects.user.HomePageObject;
 import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.RegisterPageObject;
 
-public class Account_01_Register_PageGenerator_2 extends BaseTest {
+public class Account_07_PageGenerator_2 extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;

@@ -19,7 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_Register_PageObject{
+public class Account_03_PageObject{
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	private HomePageObject homePage;

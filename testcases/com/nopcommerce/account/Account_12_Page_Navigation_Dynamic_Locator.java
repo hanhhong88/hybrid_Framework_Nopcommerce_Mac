@@ -13,11 +13,12 @@ import pageObjects.user.AddressPageObject;
 import pageObjects.user.CustomerPageObject;
 import pageObjects.user.HomePageObject;
 import pageObjects.user.UserLoginPageObject;
+import pageUIs.user.MyAccountSideBarPageUI;
 import pageObjects.user.OrderPageObject;
 import pageObjects.user.RegisterPageObject;
 import pageObjects.user.RewardPointObject;
 
-public class Account_08_Swith_Page extends BaseTest {
+public class Account_12_Page_Navigation_Dynamic_Locator extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
@@ -69,11 +70,26 @@ public class Account_08_Swith_Page extends BaseTest {
 	
 	@Test
 	public void Register_07_SwitchPage() {
-		addressPage = customPage.openAddressPage();
+		addressPage = (AddressPageObject) customPage.openDynamicPage("Addresses");
 		
-		orderPage = customPage.openOrderPage();
+		orderPage = (OrderPageObject) customPage.openDynamicPage("Orders");
 		
-		rewardPointpage = customPage.openRewardPointPage();
+		rewardPointpage = (RewardPointObject) customPage.openDynamicPage("Reward points");
+		
+	}
+	
+	@Test
+	public void Register_08_SwitchPage_NoCast() {
+	 
+		rewardPointpage.openDynamicPage_NoReturn("Addresses");
+		addressPage = PageGeneratorManager.GetAddressPageObject(driver);
+		
+		
+		addressPage.openDynamicPage("Orders");
+		orderPage = PageGeneratorManager.GetOrderPageObject(driver);
+		
+		orderPage.openDynamicPage("Reward points");
+		rewardPointpage = PageGeneratorManager.GetRewardPointObject(driver);
 		
 	}
 	

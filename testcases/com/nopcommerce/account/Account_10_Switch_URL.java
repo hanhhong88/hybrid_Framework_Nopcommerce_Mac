@@ -16,7 +16,7 @@ import pageObjects.user.HomePageObject;
 import pageObjects.user.RegisterPageObject;
 import pageObjects.user.UserLoginPageObject;
 
-public class Account_01_Switch_URL extends BaseTest {
+public class Account_10_Switch_URL extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;

@@ -31,4 +31,29 @@ public class MyAccountSideBarPage extends BasePage {
 		clickToElement(driver, MyAccountSideBarPageUI.REWARD_POINT_LINK);
 		return PageGeneratorManager.GetRewardPointObject(driver);
 	}
+	
+	public MyAccountSideBarPage openDynamicPage(String pageName) {
+		waitForElementToClickable(driver, MyAccountSideBarPageUI.DYNAMIC_LINK, pageName);
+		clickToElement(driver, MyAccountSideBarPageUI.DYNAMIC_LINK, pageName);
+		switch(pageName) {
+		case "Addresses":
+			return PageGeneratorManager.GetAddressPageObject(driver);
+		case "Orders":
+			return PageGeneratorManager.GetOrderPageObject(driver);
+		case "Reward points":
+			return PageGeneratorManager.GetRewardPointObject(driver);
+		default:
+			new RuntimeException("Side bar is invalid");
+			return null;
+		}
+	}
+	
+	public void openDynamicPage_NoReturn(String pageName) {
+		waitForElementToClickable(driver, MyAccountSideBarPageUI.DYNAMIC_LINK, pageName);
+		clickToElement(driver, MyAccountSideBarPageUI.DYNAMIC_LINK, pageName);
+	}
+	
+	
+	
+	
 }

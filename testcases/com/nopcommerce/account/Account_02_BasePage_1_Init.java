@@ -16,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class Account_01_Register_BasePage_Init {
+public class Account_02_BasePage_1_Init {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	//ap dung giau khong khoi tao new Object
