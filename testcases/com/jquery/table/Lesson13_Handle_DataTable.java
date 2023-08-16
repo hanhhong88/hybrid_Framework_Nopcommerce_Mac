@@ -1,5 +1,8 @@
 package com.jquery.table;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -14,7 +17,7 @@ import pageObjects.jquery.PageGeneratorManager;
 public class Lesson13_Handle_DataTable extends BaseTest {
 	private WebDriver driver;
 	HomePageObject homePage;
-
+	List<String> allValuesUI = new ArrayList<String>();
 
 	@Parameters({"browser", "url"})
 	@BeforeClass
@@ -60,7 +63,24 @@ public class Lesson13_Handle_DataTable extends BaseTest {
 		
 		homePage.clickToAction("AFRICA", "edit");
 		homePage.refresh(driver);
+	}
+	
+//	@Test
+	public void TC_05_Get_All_Column_Values() {
+		allValuesUI = homePage.getAllPageValuesByColumnName("Country");
+	}
+	
+	@Test
+	public void TC_06_Action_By_Index() {
+		homePage.openPageUrl(driver, "https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/");
 		
+//		homePage.enterToTextboxByColumnNameAndRowIndex("Contact Person", "2", "Messi");
+//		homePage.enterToTextboxByColumnNameAndRowIndex("Company", "1", "US");
+		
+		homePage.selectDropdownByColumnNameAndRowIndex("Country", "2", "United Kingdom");
+		homePage.selectDropdownByColumnNameAndRowIndex("Country", "3", "Japan");
+		homePage.selectCheckBoxByRowIndex("NPO?", "2");
+	
 	}
 	
 

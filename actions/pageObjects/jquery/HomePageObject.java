@@ -1,6 +1,10 @@
 package pageObjects.jquery;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import commons.BasePage;
 import pageUIs.jquery.HomePageUI;
@@ -35,5 +39,48 @@ public class HomePageObject extends BasePage {
 		waitForElementToClickable(driver, HomePageUI.BUTTON_DYNAMIC, country, buttonName);
 		clickToElement(driver, HomePageUI.BUTTON_DYNAMIC, country, buttonName);
 	}
+
+	public List<String> getAllPageValuesByColumnName(String columnName) {
+		List<String> allValues = new ArrayList<String>();
+		
+		List<WebElement> allPageLInks = getElements(driver, HomePageUI.ALL_PAGE_LINKS);
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
+		
+		for (WebElement page : allPageLInks) {
+			page.click();
+			Sleepinsecond(2);
+			
+			List<WebElement> allRowValues = getElements(driver, HomePageUI.ALL_VALUE_BY_COLUMN_INDEX, String.valueOf(columnIndex));
+			
+			for (WebElement rowValue:allRowValues) {
+				allValues.add(rowValue.getText());
+			}
+		}
+		return allValues;
+	}
+
+	public void enterToTextboxByColumnNameAndRowIndex(String columnName, String rowIndex, String valuetoSendKey) {
+		int columnIndex = getElementSize(driver, HomePageUI.DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
+		
+		waitForElementToVisibilite(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
+		
+		sendKey(driver, HomePageUI.DYNAMIC_TEXTBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, valuetoSendKey, rowIndex, String.valueOf(columnIndex));
+	}
+
+	public void selectDropdownByColumnNameAndRowIndex(String columnName, String rowIndex, String dropDownOption) {
+		int columnIndex = getElementSize(driver, HomePageUI.DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
+		
+		waitForElementToClickable(driver, HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
+		selectItemInDefaultDropdown(driver, HomePageUI.DYNAMIC_DROPDOWN_BY_ROW_INDEX_AND_COLUMN_INDEX, dropDownOption,rowIndex, String.valueOf(columnIndex));
+	}
+
+	public void selectCheckBoxByRowIndex(String columnName, String rowIndex) {
+		int columnIndex = getElementSize(driver, HomePageUI.DYNAMIC_COLUMN_INDEX_BY_COLUMN_NAME, columnName) + 1;
+		waitForElementToClickable(driver, HomePageUI.DYNAMIC_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
+		checkElement(driver, HomePageUI.DYNAMIC_CHECKBOX_BY_ROW_INDEX_AND_COLUMN_INDEX, rowIndex, String.valueOf(columnIndex));
+		
+	}
+	
+	
 	
 }
