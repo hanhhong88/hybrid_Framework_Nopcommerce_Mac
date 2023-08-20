@@ -1,5 +1,6 @@
 package commons;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
@@ -415,6 +416,19 @@ public class BasePage {
 			e.printStackTrace();
 		}
 	}
+	
+	public void uploadMutileFiles(WebDriver driver, String...fileNames) {
+		String filePath = System.getProperty("user.dir") + File.pathSeparator + "uploadFile" + File.pathSeparator;
+		String fullNameFile = "";
+		for(String file:fileNames) {
+			fullNameFile = fullNameFile + filePath + file + "\n";
+		}
+		fullNameFile = fullNameFile.trim();
+		getElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullNameFile);
+		
+	}
+	
+	
 	
 	
 	
