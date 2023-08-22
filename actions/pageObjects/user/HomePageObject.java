@@ -37,4 +37,9 @@ public class HomePageObject extends BasePage{
 		return PageGeneratorManager.GetHomePageObject(driver);
 	}
 
+	public boolean isRegisterLinkDisplayed() {
+		waitForElementToVisibilite(driver, HomePageUI.REGISTER_LINK);
+		return isElementDisplayed(driver, HomePageUI.REGISTER_LINK);
+	}
+
 }

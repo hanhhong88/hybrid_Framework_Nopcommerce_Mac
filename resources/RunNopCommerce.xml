@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="NopCommerce">
-	<parameter name="adminUrl" value="https://admin-demo.nopcommerce.com" />
-	<parameter name="userUrl" value="https://demo.nopcommerce.com" />
+	<listeners>
+		<listener class-name="commons.MethodListener"/>
+	</listeners>
 
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_12_Page_Navigation_Dynamic_Locator" />
+			<class name="com.nopcommerce.account.Account_15_Assert_Verify" />
 		</classes>
 	</test>
 </suite>
