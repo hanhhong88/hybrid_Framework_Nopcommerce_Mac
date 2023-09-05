@@ -1,0 +1,28 @@
+[2023-09-05 16:03:29,105 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 01 : Verify Register link is displayed
+[2023-09-05 16:03:29,166 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 02 : Verify click to Register link
+[2023-09-05 16:03:30,131 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 03 : Verify click to Register button
+[2023-09-05 16:03:30,447 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 04 : Verify First Name error message
+[2023-09-05 16:03:30,476 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 05 : Verify Last Name error message
+[2023-09-05 16:03:30,501 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 06 : Verify enter First Name
+[2023-09-05 16:03:30,541 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 07 : Verify enter Last Name
+[2023-09-05 16:03:30,589 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 08 : Verify enter Email
+[2023-09-05 16:03:30,652 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 09 : Verify enter Password
+[2023-09-05 16:03:30,695 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 10 : Verify enter Confirm Passwd
+[2023-09-05 16:03:30,741 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 11 : click to Register button
+[2023-09-05 16:03:31,972 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 12 : Verify success msg
+[2023-09-05 16:08:11,764 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 01 : Verify Register link is displayed
+[2023-09-05 16:08:11,821 INFO com.nopcommerce.account.Account_16_Log] - ----FAILED----
+[2023-09-05 16:08:11,822 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 02 : Verify click to Register link
+[2023-09-05 16:08:12,779 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 03 : Verify click to Register button
+[2023-09-05 16:08:13,043 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 04 : Verify First Name error message
+[2023-09-05 16:08:13,069 INFO com.nopcommerce.account.Account_16_Log] - ----PASSED----
+[2023-09-05 16:08:13,069 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 05 : Verify Last Name error message
+[2023-09-05 16:08:13,095 INFO com.nopcommerce.account.Account_16_Log] - ----FAILED----
+[2023-09-05 16:08:13,095 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 06 : Verify enter First Name
+[2023-09-05 16:08:13,138 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 07 : Verify enter Last Name
+[2023-09-05 16:08:13,188 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 08 : Verify enter Email
+[2023-09-05 16:08:13,245 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 09 : Verify enter Password
+[2023-09-05 16:08:13,289 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 10 : Verify enter Confirm Passwd
+[2023-09-05 16:08:13,329 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 11 : click to Register button
+[2023-09-05 16:08:14,456 INFO com.nopcommerce.account.Account_16_Log] - Account - Step 12 : Verify success msg
+[2023-09-05 16:08:14,496 INFO com.nopcommerce.account.Account_16_Log] - ----FAILED----

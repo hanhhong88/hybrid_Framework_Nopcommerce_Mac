@@ -7,7 +7,7 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_15_Assert_Verify" />
+			<class name="com.nopcommerce.account.Account_16_Log" />
 		</classes>
 	</test>
 </suite>
