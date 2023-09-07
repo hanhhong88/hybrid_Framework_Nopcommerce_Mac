@@ -19,7 +19,7 @@ import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.AfterClass;
 
-public class Account_16_Log extends BaseTest {
+public class Account_17_ReportNG extends BaseTest {
 	private WebDriver driver;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;

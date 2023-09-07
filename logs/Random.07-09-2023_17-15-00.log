@@ -1,0 +1,16 @@
+[07-09-2023 17:15:09.379 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 01 : Verify Register link is displayed
+[07-09-2023 17:15:09.439 INFO com.nopcommerce.account.Account_17_ReportNG] - ----FAILED----
+[07-09-2023 17:15:09.439 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 02 : Verify click to Register link
+[07-09-2023 17:15:10.418 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 03 : Verify click to Register button
+[07-09-2023 17:15:10.685 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 04 : Verify First Name error message
+[07-09-2023 17:15:10.715 INFO com.nopcommerce.account.Account_17_ReportNG] - ----PASSED----
+[07-09-2023 17:15:10.715 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 05 : Verify Last Name error message
+[07-09-2023 17:15:10.744 INFO com.nopcommerce.account.Account_17_ReportNG] - ----PASSED----
+[07-09-2023 17:15:10.824 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 01 : Verify enter First Name is hanh
+[07-09-2023 17:15:10.872 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 02 : Verify enter Last Name is nguyen
+[07-09-2023 17:15:10.931 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 03 : Verify enter Email is hanh4829@gmail.com
+[07-09-2023 17:15:11.001 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 04 : Verify enter Password is 123456
+[07-09-2023 17:15:11.046 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 05 : Verify enter Confirm Passwd
+[07-09-2023 17:15:11.090 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 06 : click to Register button
+[07-09-2023 17:15:12.277 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 07 : Verify success msg
+[07-09-2023 17:15:12.317 INFO com.nopcommerce.account.Account_17_ReportNG] - ----FAILED----

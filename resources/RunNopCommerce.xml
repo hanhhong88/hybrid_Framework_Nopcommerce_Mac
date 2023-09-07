@@ -2,12 +2,15 @@
 <suite parallel="false" name="NopCommerce">
 	<listeners>
 		<listener class-name="commons.MethodListener"/>
+		<listener class-name="reportConfig.reportNGListener"/>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
 	</listeners>
 
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_16_Log" />
+			<class name="com.nopcommerce.account.Account_17_ReportNG" />
 		</classes>
 	</test>
 </suite>
