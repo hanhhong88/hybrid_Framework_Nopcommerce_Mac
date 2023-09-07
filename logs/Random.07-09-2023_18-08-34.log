@@ -1,0 +1,18 @@
+[07-09-2023 18:08:34.396 INFO com.nopcommerce.account.Account_17_ReportNG] - Starting to delete all file in ReportNG screenshot
+[07-09-2023 18:08:34.399 INFO com.nopcommerce.account.Account_17_ReportNG] - Delete success
+[07-09-2023 18:08:39.790 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 01 : Verify Register link is displayed
+[07-09-2023 18:08:39.872 INFO com.nopcommerce.account.Account_17_ReportNG] - ----FAILED----
+[07-09-2023 18:08:39.873 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 02 : Verify click to Register link
+[07-09-2023 18:08:40.871 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 03 : Verify click to Register button
+[07-09-2023 18:08:41.138 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 04 : Verify First Name error message
+[07-09-2023 18:08:41.172 INFO com.nopcommerce.account.Account_17_ReportNG] - ----PASSED----
+[07-09-2023 18:08:41.172 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 05 : Verify Last Name error message
+[07-09-2023 18:08:41.202 INFO com.nopcommerce.account.Account_17_ReportNG] - ----PASSED----
+[07-09-2023 18:08:41.268 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 01 : Verify enter First Name is hanh
+[07-09-2023 18:08:41.309 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 02 : Verify enter Last Name is nguyen
+[07-09-2023 18:08:41.356 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 03 : Verify enter Email is hanh520@gmail.com
+[07-09-2023 18:08:41.413 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 04 : Verify enter Password is 123456
+[07-09-2023 18:08:41.461 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 05 : Verify enter Confirm Passwd
+[07-09-2023 18:08:41.503 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 06 : click to Register button
+[07-09-2023 18:08:42.191 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 07 : Verify success msg
+[07-09-2023 18:08:42.242 INFO com.nopcommerce.account.Account_17_ReportNG] - ----FAILED----
