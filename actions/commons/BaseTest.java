@@ -25,15 +25,13 @@ public class BaseTest {
 	}
 	
 	@BeforeSuite
-	public void deleteAllFilesInReportNGScreenshot() {
-		log.info("Starting to delete all file in ReportNG screenshot");
-		deleteAllFileInFolder();
-		log.info("Delete success");
+	public void deleteAllFilesInReport() {
+		deleteAllFileInFolder("allure-json");
 	}
 	
-	public void deleteAllFileInFolder() {
+	public void deleteAllFileInFolder(String folderName) {
 		try {
-			String pathFolderDownload = GlobalConstants.REPORTING_IMAGE_PATH;
+			String pathFolderDownload = GlobalConstants.RELATIVE_PROJECT_PATH + File.separator + folderName;
 			File file = new File(pathFolderDownload);
 			File[] listOfFiles = file.listFiles();
 			for (int i = 0; i < listOfFiles.length; i++) {

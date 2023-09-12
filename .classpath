@@ -20,5 +20,12 @@
 	<classpathentry kind="lib" path="libReportNG/reportng-1.1.4.jar" sourcepath="libReportNG/reportng-1.1.4-sources.jar"/>
 	<classpathentry kind="lib" path="libReportNG/reportng-1.1.4-sources.jar"/>
 	<classpathentry kind="lib" path="libReportNG/velocity-1.4.jar"/>
+	<classpathentry kind="lib" path="libAllure/allure-java-commons-2.24.0.jar"/>
+	<classpathentry kind="lib" path="libAllure/allure-model-2.24.0.jar"/>
+	<classpathentry kind="lib" path="libAllure/allure-test-filter-2.24.0.jar"/>
+	<classpathentry kind="lib" path="libAllure/allure-testng-2.24.0.jar"/>
+	<classpathentry kind="lib" path="libAllure/bsh-2.0b6.jar"/>
+	<classpathentry kind="lib" path="libAllure/jcommander-1.72.jar"/>
+	<classpathentry kind="lib" path="libAllure/slf4j-api-1.7.36.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

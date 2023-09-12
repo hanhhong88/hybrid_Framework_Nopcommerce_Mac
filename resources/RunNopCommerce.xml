@@ -2,15 +2,13 @@
 <suite parallel="false" name="NopCommerce">
 	<listeners>
 		<listener class-name="commons.MethodListener"/>
-		<listener class-name="reportConfig.reportNGListener"/>
-		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+		<listener class-name="reportConfig.allureTestListener"/>
 	</listeners>
 
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_17_ReportNG" />
+			<class name="com.nopcommerce.account.Account_19_AllureReport" />
 		</classes>
 	</test>
 </suite>

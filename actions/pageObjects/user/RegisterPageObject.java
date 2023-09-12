@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import commons.PageGeneratorManager;
+import io.qameta.allure.Step;
 import pageUIs.user.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
@@ -20,6 +21,7 @@ public class RegisterPageObject extends BasePage {
 		return PageGeneratorManager.GetRegisterPageObject(driver);
 	}
 
+	
 	public String getFirstNameErrorMsgText() {
 		waitForElementToVisibilite(driver, RegisterPageUI.FIRSTNAME_ERROR_MSG);
 		return getElementText(driver, RegisterPageUI.FIRSTNAME_ERROR_MSG);
@@ -47,32 +49,38 @@ public class RegisterPageObject extends BasePage {
 		
 	}
 
+	@Step("Enter to First Name txt with valure is {0}")
 	public void enterToFirstNameTextbox(String firstName) {
 		waitForElementToVisibilite(driver, RegisterPageUI.FIRSTNAME_TEXTBOX);
 		sendKey(driver, RegisterPageUI.FIRSTNAME_TEXTBOX, firstName);
 		
 	}
 
+	@Step("Enter to Last Name txt with valure is {0}")
 	public void enterToLastNameTextbox(String lastName) {
 		waitForElementToVisibilite(driver, RegisterPageUI.LASTNAME_TEXTBOX);
 		sendKey(driver, RegisterPageUI.LASTNAME_TEXTBOX, lastName);
 	}
 
+	@Step("Enter to Email Address txt with valure is {0}")
 	public void enterToEmailTextbox(String Email) {
 		waitForElementToVisibilite(driver, RegisterPageUI.EMAIL_TEXTBOX);
 		sendKey(driver, RegisterPageUI.EMAIL_TEXTBOX, Email);
 	}
 
+	@Step("Enter to Password txt with valure is {0}")
 	public void enterToPasswordTextbox(String passWord) {
 		waitForElementToVisibilite(driver, RegisterPageUI.PASSWORD_TEXTBOX);
 		sendKey(driver, RegisterPageUI.PASSWORD_TEXTBOX, passWord);
 	}
 
+	@Step("Enter to ConfirmPassword txt with valure is {0}")
 	public void enterToConfirmPasswordTextbox(String passWord) {
 		waitForElementToVisibilite(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
 		sendKey(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, passWord);	
 	}
-
+	
+	@Step("Verify the success mes is displayed")
 	public String getSuccessMsgText() {
 		waitForElementToVisibilite(driver, RegisterPageUI.REGISTER_MSG);
 		return getElementText(driver, RegisterPageUI.REGISTER_MSG);

@@ -174,3 +174,7 @@
 [07-09-2023 18:08:41.503 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 06 : click to Register button
 [07-09-2023 18:08:42.191 INFO com.nopcommerce.account.Account_17_ReportNG] - Account - Step 07 : Verify success msg
 [07-09-2023 18:08:42.242 INFO com.nopcommerce.account.Account_17_ReportNG] - ----FAILED----
+[12-09-2023 14:23:27.958 INFO com.nopcommerce.account.Account_19_AllureReport] - Starting to delete all file in ReportNG screenshot
+[12-09-2023 14:23:27.960 INFO com.nopcommerce.account.Account_19_AllureReport] - Delete success
+[12-09-2023 14:24:48.374 INFO com.nopcommerce.account.Account_19_AllureReport] - Starting to delete all file in ReportNG screenshot
+[12-09-2023 14:24:48.377 INFO com.nopcommerce.account.Account_19_AllureReport] - Delete success
