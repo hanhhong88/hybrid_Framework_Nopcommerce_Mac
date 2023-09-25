@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -259,7 +260,37 @@ public class BasePage {
 	}
 	
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
-		return getElement(driver, locator).isDisplayed();
+		boolean status = true;
+		try {
+//			 case 1: element is visible and in DOM -> true
+//			case 2: element is invisible and in DOM -> false
+			status = getElement(driver, locator).isDisplayed();
+	} catch (NoSuchElementException e) {
+//		case 3: element is not in DOM -> false
+		 status = false;
+	}
+		return status;
+	}
+	
+	public boolean isElementUnDisplayed(WebDriver driver, String locator) {
+//		truoc khi tim thi set timeout ngan thoi
+		setImplicitWait(driver, shortTimeout);
+		List<WebElement> elements = getElements(driver, locator);
+		setImplicitWait(driver, longTimeout);
+		if(elements.size() > 0 && elements.get(0).isDisplayed() ) {
+			System.out.println("04- Element khong co trong DOM va ko hien thi");
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
+			System.out.println("04- Element co trong DOM va ko hien thi");
+			return true;
+		} else {
+			System.out.println("04- Element co trong DOM va hien thi");
+			return false;
+		}
+	}
+	
+	public void setImplicitWait(WebDriver driver, long timeout) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeout));
 	}
 	
 	public boolean isElementDisplayed(WebDriver driver, String locator, String...params) {
@@ -418,6 +449,7 @@ public class BasePage {
 	}
 	
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
+	private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
 	
 	public void uploadMutileFiles(WebDriver driver, String...fileNames) {
 		String filePath = System.getProperty("user.dir") + File.pathSeparator + "uploadFile" + File.pathSeparator;

@@ -11,7 +11,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libSelenium/testng-6.14.3.jar"/>
-	<classpathentry kind="lib" path="libSelenium/selenium-server-4.10.0.jar"/>
 	<classpathentry kind="lib" path="libLog4jVer2/log4j-api-2.19.0.jar"/>
 	<classpathentry kind="lib" path="libLog4jVer2/log4j-core-2.19.0.jar"/>
 	<classpathentry kind="lib" path="libReportNG/commons-collections-3.2.1.jar"/>
@@ -27,5 +26,6 @@
 	<classpathentry kind="lib" path="libAllure/bsh-2.0b6.jar"/>
 	<classpathentry kind="lib" path="libAllure/jcommander-1.72.jar"/>
 	<classpathentry kind="lib" path="libAllure/slf4j-api-1.7.36.jar"/>
+	<classpathentry kind="lib" path="libSelenium/selenium-server-4.10.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
