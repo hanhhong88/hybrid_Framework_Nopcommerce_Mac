@@ -1,0 +1,9 @@
+[25-09-2023 16:29:47.527 INFO com.facebook_home.Level_20_Element_Undisplayed] - ----PASSED----
+[25-09-2023 16:29:47.572 INFO com.facebook_home.Level_20_Element_Undisplayed] - ----PASSED----
+[25-09-2023 16:29:47.607 INFO com.facebook_home.Level_20_Element_Undisplayed] - ----PASSED----
+[25-09-2023 16:29:47.640 INFO com.facebook_home.Level_20_Element_Undisplayed] - ----PASSED----
+[25-09-2023 16:29:47.705 INFO com.facebook_home.Level_20_Element_Undisplayed] - Verify confirm Email Txb is displayed
+[25-09-2023 16:29:47.739 INFO com.facebook_home.Level_20_Element_Undisplayed] - ----PASSED----
+[25-09-2023 16:29:47.834 INFO com.facebook_home.Level_20_Element_Undisplayed] - Verify confirm Email Txb is not displayed
+[25-09-2023 16:29:47.869 INFO com.facebook_home.Level_20_Element_Undisplayed] - ----FAILED----
+[25-09-2023 16:29:48.111 INFO com.facebook_home.Level_20_Element_Undisplayed] - Verify FirstName Txb is not displayed

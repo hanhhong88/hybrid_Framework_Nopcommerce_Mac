@@ -2,14 +2,15 @@ package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
+import commons.BaseElement;
 import commons.PageGeneratorManager;
 import pageUIs.user.UserLoginPageUI;
 
-public class UserLoginPageObject extends BasePage {
+public class UserLoginPageObject extends BaseElement {
 	WebDriver driver;
 
 	public UserLoginPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 

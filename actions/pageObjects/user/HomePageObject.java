@@ -2,15 +2,17 @@ package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
+import commons.BaseElement;
 import commons.BasePage;
 import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import pageUIs.user.HomePageUI;
 
-public class HomePageObject extends BasePage{
+public class HomePageObject extends BaseElement{
 	WebDriver driver;
 
 	public HomePageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
@@ -47,5 +49,7 @@ public class HomePageObject extends BasePage{
 		waitForElementToVisibilite(driver, HomePageUI.REGISTER_LINK);
 		return isElementDisplayed(driver, HomePageUI.REGISTER_LINK);
 	}
+
+	
 
 }

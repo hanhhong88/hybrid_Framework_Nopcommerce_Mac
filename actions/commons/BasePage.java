@@ -20,10 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObjects.user.AddressPageObject;
-import pageObjects.user.OrderPageObject;
-import pageObjects.user.RewardPointObject;
-import pageUIs.user.BasePageUI;
+import pageUIs.user.BaseElementUI;
 
 public class BasePage {
 	
@@ -458,7 +455,7 @@ public class BasePage {
 			fullNameFile = fullNameFile + filePath + file + "\n";
 		}
 		fullNameFile = fullNameFile.trim();
-		getElement(driver, BasePageUI.UPLOAD_FILE_TYPE).sendKeys(fullNameFile);
+		getElement(driver, BaseElementUI.UPLOAD_FILE_TYPE).sendKeys(fullNameFile);
 		
 	}
 	
