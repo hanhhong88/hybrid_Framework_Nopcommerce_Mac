@@ -5,10 +5,13 @@
 		<listener class-name="reportConfig.allureTestListener"/>
 	</listeners>
 
-	<test name="Run on Firefox">
+	<test name="Run on Firefox" preserve-order = "true">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.account.Account_21_PatternObject" />
+			<class name="com.nopcommerce.cookies.Common_Register" />
+			<class name="com.nopcommerce.cookies.Order" />
+<!--			<class name="com.nopcommerce.cookies.Product" />-->
+<!--			<class name="com.nopcommerce.cookies.Payment" />-->
 		</classes>
 	</test>
 </suite>

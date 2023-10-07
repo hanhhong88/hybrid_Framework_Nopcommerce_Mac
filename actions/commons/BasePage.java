@@ -123,6 +123,7 @@ public class BasePage {
 	public void setCookies(WebDriver driver, Set<Cookie> cookies) {
 		for(Cookie cookie:cookies) {
 		driver.manage().addCookie(cookie);
+		System.out.println(cookie);
 		}
 	}
 	
