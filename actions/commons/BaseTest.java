@@ -1,6 +1,7 @@
 package commons;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -19,16 +20,16 @@ import org.testng.annotations.BeforeSuite;
 public class BaseTest {
 	protected final Logger log;
 	private WebDriver driver;
-	
+
 	public WebDriver getDriver() {
 		return driver;
 	}
-	
+
 	@BeforeSuite
 	public void deleteAllFilesInReport() {
 		deleteAllFileInFolder("allure-json");
 	}
-	
+
 	public void deleteAllFileInFolder(String folderName) {
 		try {
 			String pathFolderDownload = GlobalConstants.RELATIVE_PROJECT_PATH + File.separator + folderName;
@@ -48,23 +49,22 @@ public class BaseTest {
 	public BaseTest() {
 		log = LogManager.getLogger(getClass());
 	}
-	
+
 //	private String projectPath = System.getProperty("user.dir");
 	protected WebDriver getBrowserName(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
-		
-		
-//		use SeleniumrManager
-		if (browser == BrowserList.FIREFOX) {
-		driver = new FirefoxDriver();
-	} else if (browser == BrowserList.CHROME) {
-		driver = new ChromeDriver();
-	} else if (browser == BrowserList.EDGE) {
-		driver = new EdgeDriver();
-	} else {
-		throw new RuntimeException("Wrong browser Name");
-	}
-		
+
+////		use SeleniumrManager
+//		if (browser == BrowserList.FIREFOX) {
+//		driver = new FirefoxDriver();
+//	} else if (browser == BrowserList.CHROME) {
+//		driver = new ChromeDriver();
+//	} else if (browser == BrowserList.EDGE) {
+//		driver = new EdgeDriver();
+//	} else {
+//		throw new RuntimeException("Wrong browser Name");
+//	}
+
 //		use WebDriverManager
 //		if (browser == BrowserList.FIREFOX) {
 //		driver = WebDriverManager.firefoxdriver().create();
@@ -75,7 +75,7 @@ public class BaseTest {
 //	} else {
 //		throw new RuntimeException("Wrong browser Name");
 //	}	
-		
+
 //		Use Enum
 //		if (browser == BrowserList.FIREFOX) {
 //			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
@@ -89,7 +89,7 @@ public class BaseTest {
 //		} else {
 //			throw new RuntimeException("Wrong browser Name");
 //		}
-		
+
 //		do not use Enum		
 //		if (browserName.equalsIgnoreCase("firefox")) {
 //			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
@@ -103,27 +103,35 @@ public class BaseTest {
 //		} else {
 //			throw new RuntimeException("Wrong browser Name");
 //		}
-	
+
 //		do not use Enum
-//		switch (browserName) {
-//		case "firefox":
-//			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-//			driver = new FirefoxDriver();
-//			break;
-//		case "chrome":
-//			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
-//			driver = new ChromeDriver();
-//			break;
-//			
-//		case "edge":
-//			System.setProperty("webdriver.edge.driver", projectPath + "/browserDrivers/msedgedriver");
-//			driver = new EdgeDriver();
-//			break;
+		switch (browserName) {
+		case "firefox":
+//			tu tai ve + tu setting
+//			System.setProperty("webdriver.gecko.driver", GlobalConstants.RELATIVE_PROJECT_PATH + "\\browserDrivers\\geckodriver.exe");
+
+//			WebDriverManager 5.x: Tai ve driver + setting bien moi truong va khoi tao browser len
+//			driver = WebDriverManager.firefoxdriver().create();
+
+//			Selenium manager (Selenium version 4.6.0 tro len)
+			driver = new FirefoxDriver();
+			break;
+		case "chrome":
+			System.setProperty("webdriver.chrome.driver",
+					GlobalConstants.RELATIVE_PROJECT_PATH + "\\browserDrivers\\chromedriver.exe");
+			driver = new ChromeDriver();
+			break;
+
+		case "edge":
+			System.setProperty("webdriver.edge.driver",
+					GlobalConstants.RELATIVE_PROJECT_PATH + "\\browserDrivers\\msedgedriver.exe");
+			driver = new EdgeDriver();
+			break;
 //
-//		default:
-//			throw new RuntimeException("Wrong browser Name");
-//		}
-		
+		default:
+			throw new RuntimeException("Wrong browser Name");
+		}
+
 //		use Enum
 //		
 //		switch (browser) {
@@ -151,22 +159,21 @@ public class BaseTest {
 		driver.get("https://demo.nopcommerce.com/");
 		return driver;
 	}
-	
+
 	protected WebDriver getBrowserName(String browserName, String url) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
-		
-		
+
 //		use SeleniumrManager
 		if (browser == BrowserList.FIREFOX) {
-		driver = new FirefoxDriver();
-	} else if (browser == BrowserList.CHROME) {
-		driver = new ChromeDriver();
-	} else if (browser == BrowserList.EDGE) {
-		driver = new EdgeDriver();
-	} else {
-		throw new RuntimeException("Wrong browser Name");
-	}
-		
+			driver = new FirefoxDriver();
+		} else if (browser == BrowserList.CHROME) {
+			driver = new ChromeDriver();
+		} else if (browser == BrowserList.EDGE) {
+			driver = new EdgeDriver();
+		} else {
+			throw new RuntimeException("Wrong browser Name");
+		}
+
 //		use WebDriverManager
 //		if (browser == BrowserList.FIREFOX) {
 //		driver = WebDriverManager.firefoxdriver().create();
@@ -177,7 +184,7 @@ public class BaseTest {
 //	} else {
 //		throw new RuntimeException("Wrong browser Name");
 //	}	
-		
+
 //		Use Enum
 //		if (browser == BrowserList.FIREFOX) {
 //			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
@@ -191,7 +198,7 @@ public class BaseTest {
 //		} else {
 //			throw new RuntimeException("Wrong browser Name");
 //		}
-		
+
 //		do not use Enum		
 //		if (browserName.equalsIgnoreCase("firefox")) {
 //			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
@@ -205,7 +212,7 @@ public class BaseTest {
 //		} else {
 //			throw new RuntimeException("Wrong browser Name");
 //		}
-	
+
 //		do not use Enum
 //		switch (browserName) {
 //		case "firefox":
@@ -225,7 +232,7 @@ public class BaseTest {
 //		default:
 //			throw new RuntimeException("Wrong browser Name");
 //		}
-		
+
 //		use Enum
 //		
 //		switch (browser) {
@@ -253,12 +260,67 @@ public class BaseTest {
 		driver.get(url);
 		return driver;
 	}
-	
+
 	protected String getEmailrandom() {
 		Random rand = new Random();
 		return "hanh" + rand.nextInt(9999) + "@gmail.com";
 	}
-	
+
+	protected void closeBrowser() {
+//		Tao ra 1 bien cmd = null
+		String cmd = null;
+		try {
+			String osName = GlobalConstants.OS_NAME.toLowerCase();
+			log.info("OS name = " + osName);
+
+			String driverInstanceName = driver.toString().toLowerCase();
+			log.info("Driver instance name = " + driverInstanceName);
+
+			String browserDriverName = null;
+
+			if (driverInstanceName.contains("chrome")) {
+				browserDriverName = "chromedriver";
+			} else if (driverInstanceName.contains("internetexplorer")) {
+				browserDriverName = "IEDriverServer";
+			} else if (driverInstanceName.contains("firefox")) {
+				browserDriverName = "geckodriver";
+			} else if (driverInstanceName.contains("edge")) {
+				browserDriverName = "msedgedriver";
+			} else if (driverInstanceName.contains("opera")) {
+				browserDriverName = "operadriver";
+			} else {
+				browserDriverName = "safaridriver";
+			}
+
+			if (osName.contains("window")) {
+				cmd = "taskkill /F /FI 'IMAGENAME eq " + browserDriverName + "*'";
+			} else {
+				cmd = "pkill " + browserDriverName;
+			}
+			
+			log.info("Command line = " + cmd);
+
+//			dong browser
+			if (driver != null) {
+
+				driver.manage().deleteAllCookies();
+				driver.quit();
+			}
+		} catch (Exception e) {
+			log.info(e.getMessage());
+		} finally {
+//			2 -quit driver (executable)
+			try {
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	protected boolean verifyTrue(boolean condition) {
 		boolean pass = true;
 		try {
@@ -268,14 +330,14 @@ public class BaseTest {
 			log.info("----FAILED----");
 			pass = false;
 
-			//ReportNG
+			// ReportNG
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-			//TestNG
+			// TestNG
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
 		return pass;
 	}
-	
+
 	protected boolean verifyFalse(boolean condition) {
 		boolean pass = true;
 		try {
@@ -289,7 +351,7 @@ public class BaseTest {
 		}
 		return pass;
 	}
-	
+
 	protected boolean verifyEquals(Object actual, Object expected) {
 		boolean pass = true;
 		try {
@@ -303,8 +365,5 @@ public class BaseTest {
 		}
 		return pass;
 	}
-	
-	
-
 
 }
