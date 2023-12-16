@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="OrangeHRM">
+	<listeners>
+		<listener class-name="commons.MethodListener"/>
+		<listener class-name="reportConfig.allureTestListener"/>
+	</listeners>
+
+<parameter name="url" value="http://localhost:80/orangehrm5" />
+
+	<test name="Run on Firefox" preserve-order = "true">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.orangehrm_pim.PIM_01_Employee" />
+		</classes>
+	</test>
+</suite>
