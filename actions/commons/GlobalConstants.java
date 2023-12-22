@@ -17,4 +17,5 @@ public class GlobalConstants {
 	public static final String UPLOAD_PATH = System.getProperty("user.dir") + "/uploadFile/";
 	public static final String DOWNLOAD_PATH = System.getProperty("user.dir") + "/downloadFiles/";
 	public static final String REPORTING_IMAGE_PATH = RELATIVE_PROJECT_PATH + File.separator + "ReportNGScreenShots" + File.separator;
+	public static final String BROWSER_EXTENTION_PATH = RELATIVE_PROJECT_PATH + File.separator + "browserExtention" + File.separator;
 }

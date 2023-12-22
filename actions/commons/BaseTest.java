@@ -2,6 +2,8 @@ package commons;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +15,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -51,6 +55,7 @@ public class BaseTest {
 	}
 
 //	private String projectPath = System.getProperty("user.dir");
+	@SuppressWarnings("deprecation")
 	protected WebDriver getBrowserName(String browserName) {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 
@@ -114,7 +119,19 @@ public class BaseTest {
 //			driver = WebDriverManager.firefoxdriver().create();
 
 //			Selenium manager (Selenium version 4.6.0 tro len)
+//			FirefoxProfile profile = new FirefoxProfile();
+//			File browserExtention = new File(GlobalConstants.BROWSER_EXTENTION_PATH + "wappalyzer-6.10.67.xpi");
+//			profile.addExtension(browserExtention);
+//			FirefoxOptions option = new FirefoxOptions();
+//			option.setProfile(profile);
+//			driver = new FirefoxDriver(option);
+			
 			driver = new FirefoxDriver();
+			Path xpipath = Paths.get(GlobalConstants.BROWSER_EXTENTION_PATH + "wappalyzer-6.10.67.xpi");
+			FirefoxDriver ffdriver = (FirefoxDriver) driver;
+			ffdriver.installExtension(xpipath);
+			driver = ffdriver;
+			
 			break;
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver",
@@ -127,6 +144,14 @@ public class BaseTest {
 					GlobalConstants.RELATIVE_PROJECT_PATH + "\\browserDrivers\\msedgedriver.exe");
 			driver = new EdgeDriver();
 			break;
+		
+		case "FIREFOX_HEADLESS":
+			FirefoxOptions ffoption = new FirefoxOptions();
+			ffoption.addArguments("--headless");
+			ffoption.addArguments("window-size=1600x900");
+			driver = new FirefoxDriver(ffoption);
+		break;
+			
 //
 		default:
 			throw new RuntimeException("Wrong browser Name");
@@ -170,6 +195,8 @@ public class BaseTest {
 			driver = new ChromeDriver();
 		} else if (browser == BrowserList.EDGE) {
 			driver = new EdgeDriver();
+		}else if (browser == BrowserList.FIREFOX_HEADLESS) {
+			driver = new FirefoxDriver();
 		} else {
 			throw new RuntimeException("Wrong browser Name");
 		}

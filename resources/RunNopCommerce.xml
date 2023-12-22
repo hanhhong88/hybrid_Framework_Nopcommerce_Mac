@@ -4,7 +4,7 @@
 		<listener class-name="commons.MethodListener"/>
 		<listener class-name="reportConfig.allureTestListener"/>
 	</listeners>
-
+	
 	<test name="Run on Firefox" preserve-order = "true">
 		<parameter name="browser" value="firefox" />
 		<classes>
@@ -13,4 +13,13 @@
 <!--			<class name="com.nopcommerce.cookies.Payment" />-->
 		</classes>
 	</test>
+
+<!--	<test name="Run on Firefox Headless" preserve-order = "true">-->
+<!--		<parameter name="browser" value="FIREFOX_HEADLESS" />-->
+<!--		<classes>-->
+<!--			<class name="com.nopcommerce.account.Account_22_Custom_Close_Browser" />-->
+<!--			<class name="com.nopcommerce.cookies.Product" />-->
+<!--			<class name="com.nopcommerce.cookies.Payment" />-->
+<!--		</classes>-->
+<!--	</test>-->
 </suite>

@@ -39,7 +39,7 @@ public class Account_22_Custom_Close_Browser extends BaseTest {
 
 	@Test
 	public void Register_01_Empty() {
-//		registerPage = homePage.clickToRegisterlink();
+
 		
 		
 		
@@ -73,7 +73,7 @@ public class Account_22_Custom_Close_Browser extends BaseTest {
 	
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		closeBrowser();
+//		closeBrowser();
 	}
 }
 

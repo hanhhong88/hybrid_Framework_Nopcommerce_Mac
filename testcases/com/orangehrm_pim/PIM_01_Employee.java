@@ -3,6 +3,8 @@ package com.orangehrm_pim;
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
@@ -38,7 +40,7 @@ public class PIM_01_Employee extends BaseTest{
 		public void before_Class(String Url, String BrowserName) {
 		
 		driver = getBrowserName(BrowserName, Url);
-		this.browserName = browserName;
+//		this.browserName = browserName;
 		firstname = "MileyHana";
 		lastname = "Cyrus";
 		
@@ -68,6 +70,7 @@ public class PIM_01_Employee extends BaseTest{
 	@Test
 	
 	public void Employees_01_Add_New(Method method) {
+		
 		AddEmployeePage = EmployeeListPage.clickToAddEmployeeButton();
 		
 		AddEmployeePage.enterToFirstName(firstname);
