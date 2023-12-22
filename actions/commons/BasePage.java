@@ -324,6 +324,10 @@ public class BasePage {
 		return getElement(driver, locator).isSelected();
 	}
 	
+	public boolean isElementSelected(WebDriver driver, String locator, String...params) {
+		return getElement(driver, getDynamicLocator(locator, params)).isSelected();
+	}
+	
 	public void switchToIframe(WebDriver driver, String locator) {
 		new WebDriverWait (driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(getByLocator(locator)));
 	}
@@ -384,6 +388,10 @@ public class BasePage {
 
 	public void clickToElementByJS(WebDriver driver, String locator) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", getElement(driver, locator));
+	}
+	
+	public void clickToElementByJS(WebDriver driver, String locator, String...params) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", getElement(driver, getDynamicLocator(locator, params)));
 	}
 
 	public void scrollToElementOnTop(WebDriver driver, String locator) {

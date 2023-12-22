@@ -30,6 +30,13 @@ public class EmployeeListPageObject  extends BaseAction{
 		clickToElement(driver, EmployeeListPageUI.SEARCH_BTN);
 		waitForSpinnerIconInvisibile();
 		
+	}
+
+	public PersonalDetailsPageObject clicktoEditEmployeeButton(String employeeID) {
+		waitForElementToClickable(driver, EmployeeListPageUI.EDIT_BUTTON_BY_EMPLOYEE_ID, employeeID );
+		clickToElement(driver, EmployeeListPageUI.EDIT_BUTTON_BY_EMPLOYEE_ID, employeeID);
+		waitForSpinnerIconInvisibile();	
+		return pageObjectManager.getPersonalDetailsPage(driver);
 	} 
 
 }

@@ -28,7 +28,10 @@ public class PIM_01_Employee extends BaseTest{
 	private EmployeeListPageObject EmployeeListPage;
 	private AddEmployeePageObject AddEmployeePage;
 	private String EmployeeID, firstname, lastname;
+	private String nickname, DriveLicenseNumber, LicenseExpiryDate, SSN, SIN, Nationality;
+	private String MartialStatus, GenderStatus, SmokeStatus, DateofBirth;
 	private PersonalDetailsPageObject PersonalDetailsPage;
+	
 	
 	@Parameters({"url", "browser"})
 	@BeforeClass
@@ -36,8 +39,20 @@ public class PIM_01_Employee extends BaseTest{
 		
 		driver = getBrowserName(BrowserName, Url);
 		this.browserName = browserName;
-		firstname = "Taylor";
-		lastname = "Swift";
+		firstname = "MileyHana";
+		lastname = "Cyrus";
+		
+		nickname = "sweetheart";
+		DriveLicenseNumber = "D08954796"; 
+		LicenseExpiryDate = "2024-03-01";
+		SSN = "078-05-1120";		
+		SIN = "968563231";
+		Nationality = "American";
+		MartialStatus = "Married";
+		GenderStatus = "Male";
+		SmokeStatus = "Yes";
+		DateofBirth = "1989-01-01";
+		
 		
 		LoginPage = pageObjectManager.getLoginPage(driver);
 		
@@ -84,7 +99,36 @@ public class PIM_01_Employee extends BaseTest{
 	
 	@Test
 	public void Employees_02_Personal_Details(Method method) {
-		System.out.println("test");
+		PersonalDetailsPage = EmployeeListPage.clicktoEditEmployeeButton(EmployeeID);
+		Assert.assertTrue(PersonalDetailsPage.isPersonalDetailHeaderDisplayed());
+		
+		Assert.assertEquals(PersonalDetailsPage.getFirstName(), firstname);
+		Assert.assertEquals(PersonalDetailsPage.getLastName(), lastname);
+		Assert.assertEquals(PersonalDetailsPage.getEmployeeID(), EmployeeID);
+		
+		PersonalDetailsPage.enterToNickNameTextBox(nickname);
+		PersonalDetailsPage.enterToDriverLicenseNumberTextBox(DriveLicenseNumber);
+		PersonalDetailsPage.enterToLicenseExpiryDatePicker(LicenseExpiryDate);
+		PersonalDetailsPage.enterToSecuritySocialNumberTextBox(SSN);
+		
+		
+		PersonalDetailsPage.enterToSocialInsuranceNumberTextBox(SIN);
+		PersonalDetailsPage.enterToNationalityDropdown(Nationality);
+		PersonalDetailsPage.enterToMartialDropdown(MartialStatus);
+		PersonalDetailsPage.enterToMaleRadioButton(GenderStatus);
+		PersonalDetailsPage.enterToDateofBirthPicker(DateofBirth);
+		PersonalDetailsPage.enterToSmokerCheckbox(SmokeStatus);
+		PersonalDetailsPage.clickToSaveButtonAtPersonalDetailPart();
+		
+		Assert.assertTrue(PersonalDetailsPage.isSuccessMessageDisplayed("Successfully Updated"));
+		PersonalDetailsPage.waitForSpinnerIconInvisibile();
+		
+		Assert.assertEquals(PersonalDetailsPage.getNationalDropdownTxb(), Nationality);
+		Assert.assertEquals(PersonalDetailsPage.getMartialDropdownTxb(), MartialStatus);
+		
+		Assert.assertTrue(PersonalDetailsPage.isGenderStatusSelected(GenderStatus));
+		Assert.assertTrue(PersonalDetailsPage.isSmokerSelected(SmokeStatus));
+		
 	}
 	
 	@Test

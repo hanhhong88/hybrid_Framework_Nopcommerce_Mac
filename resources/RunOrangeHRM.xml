@@ -5,7 +5,7 @@
 		<listener class-name="reportConfig.allureTestListener"/>
 	</listeners>
 
-<parameter name="url" value="http://localhost:80/orangehrm5" />
+<parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
 
 	<test name="Run on Firefox" preserve-order = "true">
 		<parameter name="browser" value="firefox" />
